@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sap-lab
+data:
+  index.html: |
+    <html>
+        <body>
+            <h1>Hello {{ .Values.msg }}</h1>
+        </body>
+    </html>
