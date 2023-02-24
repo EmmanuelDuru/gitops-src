@@ -21,7 +21,7 @@ spec:
       containers:
       - name: httpd
         image: "{{ .Values.image }}"
-        imagePullPolicy: {{ .Values.global.image.imagePullPolicy }}
+        imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
