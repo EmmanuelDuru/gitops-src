@@ -1,0 +1,13 @@
+# Name of the application
+name: sap-lab-02
+
+# Prerequisites
+prerequisites:
+  pv00:
+    type: PV
+    tags:
+      datastore_cu: test-edu
+  pv01:
+    type: PV
+    tags:
+      datastore_cu: test-edu2
