@@ -8,7 +8,7 @@ spec:
     - {{ .Values.pv.accessmode }}
   resources:
       requests:
-        storage: {{ .Values.pv.storage }}
+        storage: 3Mi
   selector:
     matchLabels:
       qname: {{ .Values.pv.name }}
