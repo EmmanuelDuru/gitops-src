@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sap-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sap-lab
+      app.kubernetes.io/instance: {{ .Release.Name }}-sap-lab
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sap-lab
+        app.kubernetes.io/instance: {{ .Release.Name }}-sap-lab
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+      containers:
+      - name: httpd
+        image: "{{ .Values.image }}"
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - all
+          privileged: false
+        volumeMounts:
+        - mountPath: /data
+          name: data
+          readOnly: true
+      restartPolicy: Always
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: sap-lab-pvc

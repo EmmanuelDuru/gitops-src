@@ -1,0 +1,10 @@
+# Name of the application
+name: sap-lab-50
+
+# Prerequisites
+  pv00:
+    type: PV
+    tags:
+      datastore_cu: test-edu
+
+
