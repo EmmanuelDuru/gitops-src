@@ -2,6 +2,7 @@
 name: sap-lab-50
 
 # Prerequisites
+prerequisites:
   pv00:
     type: PV
     tags:
